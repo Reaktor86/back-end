@@ -23,61 +23,34 @@ class FormBuilder
 
     public function createInput($attr = [])
     {
-        $attrString = '';
-        if (!empty($attr) && is_array($attr)) {
-            foreach ($attr as $attrName => $attrVal) {
-                $attrString .= $attrName . '="' . $attrVal . '" ';
-            }
-        }
+        $attrString = $this->getAttrString($attr);
         $result = '<input ' . $attrString . '>';
         $this->addContent($result);
     }
 
     public function createTextarea($attr = [])
     {
-        $attrString = '';
-        if (!empty($attr) && is_array($attr)) {
-            foreach ($attr as $attrName => $attrVal) {
-                $attrString .= $attrName . '="' . $attrVal . '" ';
-            }
-        }
+        $attrString = $this->getAttrString($attr);
         $result = '<textarea ' . $attrString  . '></textarea>';
         $this->addContent($result);
     }
 
     public function createSelect($options = [], $attr = [])
     {
-        $attrString = '';
-        if (!empty($attr) && is_array($attr)) {
-            foreach ($attr as $attrName => $attrVal) {
-                $attrString .= $attrName . '="' . $attrVal . '" ';
-            }
-        }
-        $optionsString = '';
-        if (!empty($options) && is_array($options)) {
-            foreach ($options as $k => $attrVal) {
-                $optionsString .= '<option>' . $attrVal . '</option>' . PHP_EOL;
-            }
-        }
+        $attrString = $this->getAttrString($attr);
+        $optionsString = $this->getAttrString($options, "option");
         $result = '<select ' . $attrString . '>' . $optionsString . '</select>';
         $this->addContent($result);
     }
 
     public function createButton($attr = [], $content = '')
     {
-        $attrString = '';
-        if (!empty($attr) && is_array($attr)) {
-            foreach ($attr as $attrName => $attrVal) {
-                $attrString .= $attrName . '="' . $attrVal . '" ';
-            }
-        }
+        $attrString = $this->getAttrString($attr);
         $result = '<button ' . $attrString . '>' . $content . '</button>';
         $this->addContent($result);
     }
 
     protected function getAttrString($array, $tag = '')
-        
-        // ДОДЕЛАТЬ
     {
         $attrString = '';
         if (!empty($array) && is_array($array)) {
@@ -85,7 +58,7 @@ class FormBuilder
                 if ($tag === '') {
                     $attrString .= $k . '="' . $val . '" ';
                 } else {
-                    $attrString .= '<' . $tag . ' ' . $k. '>' . $val . '</' . $tag . '>';
+                    $attrString .= '<' . $tag . '>' . $val . '</' . $tag . '>';
                 }
             }
         }

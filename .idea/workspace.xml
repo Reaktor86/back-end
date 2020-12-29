@@ -20,14 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f52eb6e8-0377-4808-b310-ca1bce8e3fb4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/generatehtml/HtmlBuilder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/generatehtml/handler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mafia/Game.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mafia/Player.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mafia/handler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pract6-builder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pract6.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pract6-builder.php" beforeDir="false" afterPath="$PROJECT_DIR$/pract6-builder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +82,7 @@
       <workItem from="1609099231501" duration="3752000" />
       <workItem from="1609134632900" duration="1277000" />
       <workItem from="1609168901519" duration="10148000" />
+      <workItem from="1609253668714" duration="445000" />
     </task>
     <servers />
   </component>
@@ -104,6 +99,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
