@@ -1,0 +1,14 @@
+{
+  "name": "vendor/Eshop",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Олег",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+  }
+}
