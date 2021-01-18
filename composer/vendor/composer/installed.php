@@ -6,19 +6,19 @@
     'aliases' => 
     array (
     ),
-    'reference' => '56a620d38d78de7d6d994b615b8622e049be4de3',
-    'name' => 'vendor/shop',
+    'reference' => '690f44f29f5dd0883f5dd9d9c4f25ec6fd23dac9',
+    'name' => 'src/eshop',
   ),
   'versions' => 
   array (
-    'vendor/shop' => 
+    'src/eshop' => 
     array (
       'pretty_version' => 'dev-main',
       'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => '56a620d38d78de7d6d994b615b8622e049be4de3',
+      'reference' => '690f44f29f5dd0883f5dd9d9c4f25ec6fd23dac9',
     ),
   ),
 );

@@ -20,26 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f52eb6e8-0377-4808-b310-ca1bce8e3fb4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/composer/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/composer.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/run.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/src/Eshop/DbHelper.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/src/Eshop/Product.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/src/Eshop/User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/vendor/autoload.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/vendor/composer/ClassLoader.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/vendor/composer/InstalledVersions.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/vendor/composer/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/vendor/composer/autoload_namespaces.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/vendor/composer/autoload_real.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/vendor/composer/autoload_static.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/vendor/composer/installed.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/vendor/composer/installed.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dz_oop1/Product.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dz_oop1/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/from-internet/forms.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/from-internet/oop.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/from-internet/oop2.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/composer/vendor/composer/InstalledVersions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/composer/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/composer/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/composer/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dz_oop1/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/dz_oop1/Product.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +66,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PhpSpreadsheet-master" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -106,6 +96,12 @@
       <workItem from="1610091301098" duration="4984000" />
       <workItem from="1610112139300" duration="1423000" />
       <workItem from="1610263893691" duration="1608000" />
+      <workItem from="1610728325522" duration="365000" />
+      <workItem from="1610736364918" duration="2403000" />
+      <workItem from="1610819681934" duration="1408000" />
+      <workItem from="1610822235049" duration="35000" />
+      <workItem from="1610905140099" duration="3524000" />
+      <workItem from="1610964420325" duration="3452000" />
     </task>
     <servers />
   </component>

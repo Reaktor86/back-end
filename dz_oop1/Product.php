@@ -1,6 +1,7 @@
 <?php
 
 $obj = new Product($_POST["name"], $_POST["price"]);
+$obj->setProduct();
 
 class Product
 {
