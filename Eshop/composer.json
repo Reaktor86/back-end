@@ -1,0 +1,15 @@
+{
+    "name": "admin/localhost",
+    "authors": [
+        {
+            "name": "Ivan Shishkin",
+            "email": "ivandenviii@gmail.com"
+        }
+    ],
+    "autoload":{
+        "psr-4": {
+            "Eshop\\": "src/Eshop"
+        }
+    },
+    "require": {}
+}

@@ -20,10 +20,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f52eb6e8-0377-4808-b310-ca1bce8e3fb4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/composer/src/Eshop/Db.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/конспект по MySQL.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer/src/Eshop/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/composer/src/Eshop/Product.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Eshop/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Eshop/composer.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Eshop/handle.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Eshop/run.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Eshop/scripts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Eshop/src/Eshop.rar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Eshop/src/Eshop/Db.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Eshop/src/Eshop/DbHelper.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Eshop/src/Eshop/Product.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Eshop/src/Eshop/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Eshop/vendor/autoload.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Eshop/vendor/composer/ClassLoader.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Eshop/vendor/composer/InstalledVersions.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Eshop/vendor/composer/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Eshop/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Eshop/vendor/composer/autoload_namespaces.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Eshop/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Eshop/vendor/composer/autoload_real.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Eshop/vendor/composer/autoload_static.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Eshop/vendor/composer/installed.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Eshop/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/run.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/src/Eshop/Db.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/src/Eshop/DbHelper.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/src/Eshop/Product.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/src/Eshop/User.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/vendor/autoload.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/vendor/composer/ClassLoader.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/vendor/composer/InstalledVersions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/vendor/composer/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/vendor/composer/autoload_classmap.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/vendor/composer/autoload_namespaces.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/vendor/composer/autoload_psr4.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/vendor/composer/autoload_real.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/vendor/composer/autoload_static.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/vendor/composer/installed.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/vendor/composer/installed.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +136,7 @@
       <workItem from="1610822235049" duration="35000" />
       <workItem from="1610905140099" duration="3524000" />
       <workItem from="1610964420325" duration="3452000" />
+      <workItem from="1611044275154" duration="574000" />
     </task>
     <servers />
   </component>

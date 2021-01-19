@@ -14,6 +14,13 @@ UPDATE users
    SET position_id = 4
  WHERE id = 1;
 
+IN - MySQL условие IN используется, чтобы уменьшить необходимость использования нескольких условий OR в операторе SELECT, INSERT, UPDATE или DELETE.
+
+SELECT *
+  FROM contacts
+ WHERE last_name IN ('Bernard', 'Boy', 'Tomas');
+
+
 
 php
 
