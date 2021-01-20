@@ -20,6 +20,36 @@ SELECT *
   FROM contacts
  WHERE last_name IN ('Bernard', 'Boy', 'Tomas');
 
+Команда AS задает новое имя полям или таблицам при выборке из базы (то есть в самой базе изменения не происходят).
+
+Связывание таблиц
+SELECT columns
+ FROM table1
+ INNER JOIN table2
+ ON table1.column = table2.column;
+
+SELECT suppliers.supplier_id, suppliers.supplier_name, orders.order_date
+FROM suppliers
+INNER JOIN orders
+ON suppliers.supplier_id = orders.supplier_id;
+
+MIN(age) - выбрать минимальное значение
+SUM(age) - суммировать значения
+AVG(age) - среднее значение
+NOW() - вставить в таблицу дату в формате 'год-месяц-день часы:минуты:секунды'.
+CURDATE() - 'год-месяц-день'
+
+работа с датами
+SELECT EXTRACT(DAY FROM date) AS day,
+EXTRACT(MONTH FROM date) AS month,
+EXTRACT(YEAR FROM date) AS year 
+FROM workers
+
+Команда INTERVAL позволяет прибавлять к дате и отнимать от нее определенные промежутки времени.
+
+LIKE 'P%' // выбрать названия начинающиеся с определенной буквы
+
+Оператор ORDER BY сортируют значения по одному или нескольких столбцам
 
 
 php

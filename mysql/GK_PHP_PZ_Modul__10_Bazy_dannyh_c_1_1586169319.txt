@@ -1,0 +1,64 @@
+SELECT * FROM `product` WHERE 1
+
+SELECT * FROM `product` WHERE price > 10
+
+SELECT * FROM `product` WHERE price > 5 AND price < 20
+
+SELECT * FROM `product` WHERE name LIKE 'P%'
+
+SELECT * FROM `product` WHERE 1 ORDER BY price
+
+UPDATE product SET price = 25 WHERE id = 1
+
+INSERT INTO category
+ (id, name)
+ VALUES
+ (1, 'Org'),
+ (2, 'Office');
+
+UPDATE product SET idCategory = 1 WHERE id IN (1,2,5,6,8,9,10)
+UPDATE product SET idCategory = NULL WHERE id = 5
+
+1. Создать запрос, который будет считать количество
+существующих продуктов.
+
+
+
+2. Создать запрос, который будет считать количество
+продуктов для одной категории.
+
+SELECT COUNT(*) FROM `product` WHERE idCategory = 0
+
+3. Создать запрос, который выведет среднее значение
+цены всех продуктов.
+
+SELECT AVG(price) FROM `product` WHERE 1
+
+4. Создать запрос, который будет выводить самый дорогой продукт.
+
+SELECT MAX(price) FROM `product` WHERE 1
+
+5. Создать запрос, который выведет категорию с наименьшим количеством продуктов.
+
+SELECT COUNT(*) AS count0 FROM `product` WHERE idCategory = 0;
+SELECT COUNT(*) AS count1 FROM `product` WHERE idCategory = 1;
+SELECT MIN(count0,count1)
+
+6. Создать запрос, который выведет категорию с самым
+дорогим продуктом.
+
+
+7. Создать запрос, который будет считать разницу в цене
+между самым дорогим и самым дешевым продуктом.
+
+
+8. Создать запрос, который выведет общую цену всех
+продуктов.
+
+
+9. Создать запрос, который выведет количество категорий, в которых нет ни одного продукта, и отсортирует
+их по названию.
+
+10. Создать запрос, который выведет среднюю цену всех
+товаров, которые относятся к категории с наибольшим
+количеством продуктов. 
