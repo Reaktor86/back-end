@@ -52,6 +52,18 @@ return md5($hashString);
 action="handler1.php" - скрипт, который будет выполняться при нажатии на submit
 method="GET" - метод запроса
 
+EXCEPTION
+
+throw new \Exception("Неверные данные");
+
+try {
+вызов метода
+}
+catch (Exception $e) {
+var_dump($e->getMessage());
+}
+
+
 
 РАЗНОЕ
 
