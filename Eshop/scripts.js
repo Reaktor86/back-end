@@ -6,7 +6,7 @@ button.forEach(function (item){
             'id':productId,
             'method': "delete"
         };
-        let response =fetch('handle.php', {
+        let response =fetch('/Eshop/handle.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -26,7 +26,7 @@ updatesButtons.forEach(function (item) {
             'method': "getProduct"
         };
 
-        let response =fetch('/handle.php', {
+        let response =fetch('/Eshop/handle.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -47,9 +47,11 @@ updatesButtons.forEach(function (item) {
     });
 });
 
-let formButton = document.querySelector(".popup__button");
+let formButton = document.querySelector(".popup__form");
 formButton.addEventListener("submit", function (e){
     e.preventDefault();
+    let popupButton = document.querySelector('.popup');
+    popupButton.style.display = 'none';
     let temp = {
         method: 'update',
         id: this.querySelector("input[name=id]").value,
@@ -58,7 +60,7 @@ formButton.addEventListener("submit", function (e){
         active: this.querySelector("input[name=Active]").value,
         description: this.querySelector("input[name=Description]").value,
     };
-    let response =fetch('/handle.php', {
+    let response =fetch('/Eshop/handle.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -73,4 +75,28 @@ formButton.addEventListener("submit", function (e){
                 document.querySelector('.error').innerHTML = data.error;
             }
         });
+});
+
+let addButton = document.querySelector(".form-add");
+addButton.addEventListener("submit", function (e){
+    e.preventDefault();
+    let file = this.querySelector("input[name=img_path]");
+    let data = new FormData();
+    data.append('file', file.files[0]);
+    let addInfo = {
+        method: 'add',
+        name: this.querySelector("input[name=Name]").value,
+        price: this.querySelector("input[name=Price]").value,
+        active: this.querySelector("input[name=Active]").value,
+        description: this.querySelector("input[name=Description]").value,
+        img_path: file,
+    }
+    console.log(addInfo)
+    let response = fetch('/Eshop/handle.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(addInfo)
+    })
 });

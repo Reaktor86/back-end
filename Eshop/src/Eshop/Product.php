@@ -62,6 +62,9 @@ class Product
         $fields = $this->clearNotRequire($fields);
         unset($fields['id']);
         foreach ($fields as $k => $value) {
+            if (!in_array($k, $this->requireFields)) {
+                unset($fields[$k]);
+            }
             $string = "`" . $k . "`" . "=" . "'" . $value ."'";
             $temp[] = $string;
         }

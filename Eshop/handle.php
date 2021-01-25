@@ -1,5 +1,4 @@
 <?php
-echo "рабоает";
 require ('vendor/autoload.php');
 $request = json_decode(file_get_contents('php://input'),1);
 
@@ -22,4 +21,16 @@ elseif ($request['method'] == 'getProduct')
 {
     $objData = $obj->getProducts(["*"],['id'=>$request['id']]);
     echo json_encode($objData);
+}
+elseif ($request['method'] == 'add')
+{
+    try {
+        $obj->addProduct($request);
+        $filename = $_FILES['uploadedFile']['name'];
+        move_uploaded_file($filename, 'src/img');
+        // закончил здесь - организовать считываение файла в product.php
+    }
+    catch (Exception $e) {
+        echo json_encode(['error' => $e->getMessage()]);
+    }
 }

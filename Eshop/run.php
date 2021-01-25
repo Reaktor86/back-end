@@ -1,5 +1,6 @@
 <?php
 require ('vendor/autoload.php');
+
 $fields = [
     'name' => 'Mercedes',
     'description' => 'white',
@@ -32,6 +33,16 @@ echo "</pre>";*/
 
 ?>
 
+<form class="form-add" enctype="multipart/form-data">
+    <input type="text" name="Name" placeholder="название"><br>
+    <input type="text" name="Description" placeholder="описание"><br>
+    <input type="text" name="Price" placeholder="цена"><br>
+    <input type="text" name="Active" placeholder="активный?"><br>
+    <input type="hidden" name="MAX_FILE_SIZE" value="3000">
+    <input type="file" name="img_path" placeholder="загрузить изображение"><br>
+    <button class="form-add__button">Добавить</button>
+</form>
+
 <table border="1">
     <thead>
     <tr>
@@ -40,21 +51,21 @@ echo "</pre>";*/
         <th>Описание</th>
         <th>Цена</th>
         <th>Активный</th>
+        <th>Изображение</th>
         <th>Обновить</th>
         <th>Удалить</th>
     </tr>
     </thead>
     <tbody>
     <?
-    foreach ($products
-
-    as $val): ?>
+    foreach ($products as $val): ?>
     <tr>
         <td><?= $val['id'] ?></td>
         <td><?= $val['name'] ?></td>
         <td><?= $val['description'] ?></td>
         <td><?= $val['price'] ?></td>
         <td><?= $val['active'] ?></td>
+        <td><?= $val['img_path'] ?></td>
         <td>
             <button class="update" data-id="<?= $val['id'] ?>">Upd</button>
         </td>
@@ -94,6 +105,7 @@ echo "</pre>";*/
     .popup__form button {
         width: 75px;
     }
+
 </style>
 
 <script src="scripts.js"></script>
