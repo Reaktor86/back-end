@@ -19,12 +19,26 @@ class Product
     {
         $this->db = new Db();
     }
+    protected function clearNotRequire($data)
+    {
+        foreach ($data as $k => $item) {
+            if (!in_array($k, $this->requireFields)) {
+                unset($data[$k]);
+            }
+        }
+
+        return $data;
+    }
 
     public function addProduct($fields)
     {
         //INSERT INTO `products` (`id`, `name`, `description`, `price`, `img_path`, `active`) VALUES (NULL, '1213', '123', '111', '123', '1');
         if (!isset($fields['id'])) {
             //$fields['id'] = '';
+        }
+
+        if (empty($fields) || !is_array($fields)) {
+            throw new \Exception('Передали неверные данные');
         }
 
         foreach ($fields as $k => &$field) {
@@ -40,24 +54,26 @@ class Product
 
         $strQuery = "INSERT INTO `products` ({$fieldsKeys}) VALUES ({$fieldsValues});";
         $this->db->query($strQuery);
-
-
     }
 
     public function updateProduct($id, $fields)
     {
         $temp = [];
+        $fields = $this->clearNotRequire($fields);
+        unset($fields['id']);
         foreach ($fields as $k => $value) {
             $string = "`" . $k . "`" . "=" . "'" . $value ."'";
             $temp[] = $string;
         }
-        echo"<pre>";
-        print_r($temp);
-        echo"<pre>";
+
         $setString = implode(',',$temp);
         $updateStr = "UPDATE `products` SET {$setString} WHERE `id` = {$id}";
-        print_r($updateStr);
-        $this->db->query($updateStr);
+        $result = $this->db->query($updateStr);
+        var_dump($updateStr);
+
+        if (!$result) {
+            throw new \Exception('Проблема с обновлением.');
+        }
     }
 
     public function deleteProduct($id)
