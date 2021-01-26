@@ -1,6 +1,7 @@
 <?php
 require ('vendor/autoload.php');
 $request = json_decode(file_get_contents('php://input'),1);
+print_r($request);
 
 $obj = new \Eshop\Product();
 
@@ -25,10 +26,15 @@ elseif ($request['method'] == 'getProduct')
 elseif ($request['method'] == 'add')
 {
     try {
+        $path = __DIR__ . '/src/img/';
+        $file = $request['img_path'];
+        if (move_uploaded_file($file, $path)) {
+            echo "файл переместился";
+        } else {
+            echo "файл не переместился";
+        }
+        $request['img_path'] = '/src/img/';
         $obj->addProduct($request);
-        $filename = $_FILES['uploadedFile']['name'];
-        move_uploaded_file($filename, 'src/img');
-        // закончил здесь - организовать считываение файла в product.php
     }
     catch (Exception $e) {
         echo json_encode(['error' => $e->getMessage()]);

@@ -89,7 +89,7 @@ addButton.addEventListener("submit", function (e){
         price: this.querySelector("input[name=Price]").value,
         active: this.querySelector("input[name=Active]").value,
         description: this.querySelector("input[name=Description]").value,
-        img_path: file,
+        img_path: data,
     }
     console.log(addInfo)
     let response = fetch('/Eshop/handle.php', {
