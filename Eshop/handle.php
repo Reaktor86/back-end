@@ -28,11 +28,7 @@ elseif ($request['method'] == 'add')
     try {
         $path = __DIR__ . '/src/img/';
         $file = $request['img_path'];
-        if (move_uploaded_file($file, $path)) {
-            echo "файл переместился";
-        } else {
-            echo "файл не переместился";
-        }
+        move_uploaded_file($file, $path);
         $request['img_path'] = '/src/img/';
         $obj->addProduct($request);
     }
