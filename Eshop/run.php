@@ -13,6 +13,7 @@ try {
     $obj = new \Eshop\Product();
     //$obj->addProduct($fields);
     $products = $obj->getProducts();
+    $quantity = $obj->getQuantity();
 }
 catch (Exception $e) {
     mail('admin@admin.ri', 'Ошибка на сайте', $e->getMessage());
@@ -46,6 +47,7 @@ echo "</pre>";*/
 <table border="1">
     <thead>
     <tr>
+        <? if (!$quantity): ?>
         <th>ID</th>
         <th>Название</th>
         <th>Описание</th>
@@ -54,11 +56,18 @@ echo "</pre>";*/
         <th>Изображение</th>
         <th>Обновить</th>
         <th>Удалить</th>
+        <? else: ?>
+            <th>ID</th>
+            <th>Название</th>
+            <th>Общее кол-во</th>
+        <? endif; ?>
     </tr>
     </thead>
     <tbody>
     <?
-    foreach ($products as $val): ?>
+    if (!$quantity): ?>
+
+        <? foreach ($products as $val): ?>
     <tr>
         <td><?= $val['id'] ?></td>
         <td><?= $val['name'] ?></td>
@@ -74,6 +83,19 @@ echo "</pre>";*/
         </td>
     <tr>
         <? endforeach; ?>
+
+    <? else: ?>
+
+        <? foreach ($quantity as $val): ?>
+    <tr>
+        <td><?= $val['id'] ?></td>
+        <td><?= $val['name'] ?></td>
+        <td><?= $val['total_quantity'] ?></td>
+    <tr>
+        <? endforeach; ?>
+
+    <? endif; ?>
+
     </tbody>
 </table>
 

@@ -81,6 +81,7 @@ let addButton = document.querySelector(".form-add");
 addButton.addEventListener("submit", function (e){
     e.preventDefault();
     let file = this.querySelector("input[name=img_path]");
+    console.log(file.files[0]);
     let data = new FormData();
     data.append('file', file.files[0]);
     let addInfo = {

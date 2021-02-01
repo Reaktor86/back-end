@@ -115,4 +115,15 @@ class Product
         $result = $this->db->query($str);
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getQuantity()
+    {
+        $str = 'SELECT products.id, products.name, SUM(products_quantity.quantity) AS total_quantity
+            FROM products
+            INNER JOIN products_quantity
+            ON products.id = products_quantity.product_id
+            GROUP BY products.id';
+        $result = $this->db->query($str);
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }

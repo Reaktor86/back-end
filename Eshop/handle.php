@@ -27,7 +27,8 @@ elseif ($request['method'] == 'add')
 {
     try {
         $path = __DIR__ . '/src/img/';
-        $file = $request['img_path'];
+        print_r($request['img_path']);
+        $file = $request['img_path']['file'];
         move_uploaded_file($file, $path);
         $request['img_path'] = '/src/img/';
         $obj->addProduct($request);
