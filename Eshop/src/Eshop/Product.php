@@ -126,4 +126,15 @@ class Product
         $result = $this->db->query($str);
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getShopAssortment($shopId)
+    {
+        $str = 'SELECT products.id, products.name, products_quantity.quantity
+            FROM products
+            LEFT JOIN products_quantity
+            ON products.id = products_quantity.product_id
+            WHERE products_quantity.store_id = ' . $shopId;
+        $result = $this->db->query($str);
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }

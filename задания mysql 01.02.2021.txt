@@ -18,11 +18,11 @@ GROUP BY products.id;
 
 3.
 
-id магазина, вернуть весь ассортимент, включая 0-е кол-во других товаров
+по известному id магазина, вернуть весь ассортимент, включая 0-е кол-во других товаров
 
-SELECT shops.id AS shop_id, shops.name AS shop_name, products.name, products_quantity.quantity
-FROM shops
-INNER JOIN products_quantity
-ON shops.id = products_quantity.store_id
-INNER JOIN products
-ON products_quantity.product_id = products.id
+SELECT products.id AS prod_id, products.name AS prod_name, products_quantity.quantity
+FROM products
+LEFT JOIN products_quantity
+ON products.id = products_quantity.product_id
+WHERE products_quantity.store_id = 1
+

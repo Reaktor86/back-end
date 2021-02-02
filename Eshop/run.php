@@ -14,6 +14,7 @@ try {
     //$obj->addProduct($fields);
     $products = $obj->getProducts();
     $quantity = $obj->getQuantity();
+    $shopAssort = $obj->getShopAssortment(1);
 }
 catch (Exception $e) {
     mail('admin@admin.ri', 'Ошибка на сайте', $e->getMessage());
@@ -98,6 +99,30 @@ echo "</pre>";*/
 
     </tbody>
 </table>
+
+<? if ($shopAssort): ?>
+<br>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Название</th>
+        <th>Кол-во в магазине</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <? foreach ($shopAssort as $val): ?>
+    <tr>
+        <td><?= $val['id'] ?></td>
+        <td><?= $val['name'] ?></td>
+        <td><?= $val['quantity'] ?></td>
+    <tr>
+        <? endforeach; ?>
+
+    </tbody>
+</table>
+<? endif; ?>
 
 <div class="popup">
     <form class="popup__form">
