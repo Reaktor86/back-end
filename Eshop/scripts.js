@@ -80,24 +80,32 @@ formButton.addEventListener("submit", function (e){
 let addButton = document.querySelector(".form-add");
 addButton.addEventListener("submit", function (e){
     e.preventDefault();
-    let file = this.querySelector("input[name=img_path]");
-    console.log(file.files[0]);
-    let data = new FormData();
-    data.append('file', file.files[0]);
+
     let addInfo = {
         method: 'add',
         name: this.querySelector("input[name=Name]").value,
         price: this.querySelector("input[name=Price]").value,
         active: this.querySelector("input[name=Active]").value,
         description: this.querySelector("input[name=Description]").value,
-        img_path: data,
     }
-    console.log(addInfo)
+
+    let file = this.querySelector("input[name=img_path]").files[0];
+    let data = new FormData();
+    data.append('file_img', file);
+
+    //console.log(data)
+
+    for (let item in addInfo) {
+        data.append(item, addInfo[item]);
+        //console.log(item);
+    }
+
+    //console.log(data)
     let response = fetch('/Eshop/handle.php', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json;charset=utf-8'
+            //'Content-Type': 'application/json;charset=utf-8'
         },
-        body: JSON.stringify(addInfo)
+        body: data
     })
 });

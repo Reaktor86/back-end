@@ -1,7 +1,11 @@
 <?php
 require ('vendor/autoload.php');
 $request = json_decode(file_get_contents('php://input'),1);
-print_r($request);
+
+if (empty($request)) {
+    $request = $_REQUEST;
+    $request['img_path'] = $_FILES['file_img'];
+}
 
 $obj = new \Eshop\Product();
 
@@ -26,11 +30,6 @@ elseif ($request['method'] == 'getProduct')
 elseif ($request['method'] == 'add')
 {
     try {
-        $path = __DIR__ . '/src/img/';
-        print_r($request['img_path']);
-        $file = $request['img_path']['file'];
-        move_uploaded_file($file, $path);
-        $request['img_path'] = '/src/img/';
         $obj->addProduct($request);
     }
     catch (Exception $e) {

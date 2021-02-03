@@ -33,13 +33,30 @@ class Product
     public function addProduct($fields)
     {
         //INSERT INTO `products` (`id`, `name`, `description`, `price`, `img_path`, `active`) VALUES (NULL, '1213', '123', '111', '123', '1');
-        if (!isset($fields['id'])) {
-            //$fields['id'] = '';
-        }
 
         if (empty($fields) || !is_array($fields)) {
             throw new \Exception('Передали неверные данные');
         }
+
+        // обработка файла
+
+        $nameArr = explode('.', $fields['img_path']['name']);
+        $ext = strtolower(end($nameArr));
+        $extensions = ['png', 'jpg', 'jpeg'];
+
+        var_dump($fields['img_path']);
+
+        if (in_array($ext, $extensions)) {
+            $name = md5('sold23' . time()) . '.' . $ext;
+            $newPath = $_SERVER['DOCUMENT_ROOT'] . '/Eshop/src/img/' . $name;
+            echo $newPath;
+            $check = move_uploaded_file($fields['img_path']['tmp_name'], $newPath);
+            echo $check;
+        } else {
+            echo 'неправильный формат картинки';
+        }
+
+
 
         foreach ($fields as $k => &$field) {
             if (!in_array($k, $this->requireFields)) {
