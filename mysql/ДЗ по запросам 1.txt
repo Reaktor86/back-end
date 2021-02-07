@@ -1,0 +1,74 @@
+3. Запрос вставки данных в User
+
+INSERT INTO user (id, Name) VALUES (NULL, 'Костя');
+
+4. Запрос вставки данных в Cart
+
+INSERT INTO cart (id, userid, productid) VALUES (NULL, 1, 1);
+
+5. Запросы для вывода
+а) всех пользователей
+
+SELECT * FROM `user` WHERE 1
+
+б) всех записей в корзине (все о юзере, все о продукте, все о категории)
+
+SELECT user.id, user.Name AS user_name, product.Name AS prod_name, product.Price AS prod_price, category.Name AS cat_name
+ FROM cart
+ INNER JOIN user
+ ON cart.userid = user.id
+ INNER JOIN product
+ ON cart.productid = product.id
+ INNER JOIN category
+ ON category.id = product.idCategory
+
+c) всех записей в корзине (имя юзера, имя категории, имя продукта)
+
+SELECT user.Name AS user_name, product.Name AS prod_name, category.Name AS cat_name
+ FROM cart
+ INNER JOIN user
+ ON cart.userid = user.id
+ INNER JOIN product
+ ON cart.productid = product.id
+ INNER JOIN category
+ ON category.id = product.idCategory
+
+d) все, что положил в корзину один юзер (все о юзере, продукт, категория)
+
+SELECT user.id, user.Name AS user_name, product.Name AS prod_name, category.Name AS cat_name
+ FROM cart
+ INNER JOIN user
+ ON cart.userid = user.id
+ INNER JOIN product
+ ON cart.productid = product.id
+ INNER JOIN category
+ ON category.id = product.idCategory
+ WHERE user.id = 1;
+
+e) название категорий, продукты которых добавлены в корзину одним юзером
+
+SELECT category.Name
+ FROM cart
+ INNER JOIN user
+ ON cart.userid = user.id
+ INNER JOIN product
+ ON cart.productid = product.id
+ INNER JOIN category
+ ON category.id = product.idCategory
+ WHERE user.id = 8
+ GROUP BY category.Name;
+
+f) инфа о всех юзерах, которые купили 1 продукт
+
+???
+SELECT user.id, user.Name
+ FROM cart
+ INNER JOIN user
+ ON cart.userid = user.id
+
+???
+SELECT COUNT(productid)
+FROM cart
+GROUP BY userid
+
+g) инфа о категории, продуктов которой нет у юзера в корзине

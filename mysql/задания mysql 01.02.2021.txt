@@ -1,0 +1,28 @@
+1. JOIN трех таблиц
+
+SELECT products.id AS prod_id, products.name AS prod_name, shops.name AS shop_name, products_quantity.quantity
+ FROM products
+ INNER JOIN products_quantity
+ ON products.id = products_quantity.product_id
+ INNER JOIN shops
+ ON products_quantity.store_id = shops.id
+ WHERE products_quantity.quantity > 0;
+
+2. JOIN двух таблиц и сумма количества с группировкой товаров: MySQL SUM() function with group by
+
+SELECT products.id, products.name, SUM(products_quantity.quantity) AS total_quantity
+FROM products
+INNER JOIN products_quantity
+ON products.id = products_quantity.product_id
+GROUP BY products.id;
+
+3.
+
+по известному id магазина, вернуть весь ассортимент, включая 0-е кол-во других товаров
+
+SELECT products.id AS prod_id, products.name AS prod_name, products_quantity.quantity
+FROM products
+LEFT JOIN products_quantity
+ON products.id = products_quantity.product_id
+WHERE products_quantity.store_id = 1
+
