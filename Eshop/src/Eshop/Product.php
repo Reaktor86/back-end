@@ -49,14 +49,11 @@ class Product
         if (in_array($ext, $extensions)) {
             $name = md5('sold23' . time()) . '.' . $ext;
             $newPath = $_SERVER['DOCUMENT_ROOT'] . '/Eshop/src/img/' . $name;
-            echo $newPath;
             $check = move_uploaded_file($fields['img_path']['tmp_name'], $newPath);
-            echo $check;
+            $fields['img_path'] = $newPath;
         } else {
             echo 'неправильный формат картинки';
         }
-
-
 
         foreach ($fields as $k => &$field) {
             if (!in_array($k, $this->requireFields)) {
@@ -71,6 +68,7 @@ class Product
 
         $strQuery = "INSERT INTO `products` ({$fieldsKeys}) VALUES ({$fieldsValues});";
         $this->db->query($strQuery);
+        return $fields;
     }
 
     public function updateProduct($id, $fields)

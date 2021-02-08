@@ -1,0 +1,20 @@
+2.
+
+SELECT SUM(quantity) FROM products_in_cart
+INNER JOIN cart
+ON cart.id = products_in_cart.cart_id
+INNER JOIN users
+ON users.id = cart.user_id
+WHERE cart.user_id = 3
+
+3.
+
+SELECT SUM(products.price*products_in_cart.quantity) FROM products_in_cart
+INNER JOIN cart
+ON cart.id = products_in_cart.cart_id
+INNER JOIN users
+ON users.id = cart.user_id
+INNER JOIN products
+ON products.id = products_in_cart.product_id
+WHERE cart.user_id = 3
+

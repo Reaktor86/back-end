@@ -75,7 +75,7 @@ echo "</pre>";*/
         <td><?= $val['description'] ?></td>
         <td><?= $val['price'] ?></td>
         <td><?= $val['active'] ?></td>
-        <td><?= $val['img_path'] ?></td>
+        <td><img src="<?= $val['img_path'] ?>"></td>
         <td>
             <button class="update" data-id="<?= $val['id'] ?>">Upd</button>
         </td>
