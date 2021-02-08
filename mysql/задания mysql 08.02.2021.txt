@@ -9,7 +9,7 @@ WHERE cart.user_id = 3
 
 3.
 
-SELECT SUM(products.price*products_in_cart.quantity) FROM products_in_cart
+SELECT SUM(products.price * products_in_cart.quantity) FROM products_in_cart
 INNER JOIN cart
 ON cart.id = products_in_cart.cart_id
 INNER JOIN users
@@ -17,4 +17,29 @@ ON users.id = cart.user_id
 INNER JOIN products
 ON products.id = products_in_cart.product_id
 WHERE cart.user_id = 3
+
+4
+
+тоже самое, только avg
+
+5
+
+SELECT products.name, products_in_cart.quantity FROM products_in_cart
+INNER JOIN cart
+ON cart.id = products_in_cart.cart_id
+INNER JOIN products
+ON products.id = products_in_cart.product_id
+WHERE cart.user_id = 3
+
+6
+
+SELECT COUNT(products_in_cart.product_id) AS counter, products_in_cart.product_id, products.price
+FROM products_in_cart
+INNER JOIN products
+ON products.id = products_in_cart.product_id
+GROUP BY product_id
+ORDER BY counter DESC, products.price DESC
+LIMIT 3
+
+7
 
