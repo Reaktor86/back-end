@@ -1,17 +1,19 @@
-3. Запрос вставки данных в User
+3. Написать запрос вставки данных в табличку User.
 
 INSERT INTO user (id, Name) VALUES (NULL, 'Костя');
 
-4. Запрос вставки данных в Cart
+4. Написать запрос вставки данных в табличку Cart.
 
 INSERT INTO cart (id, userid, productid) VALUES (NULL, 1, 1);
 
-5. Запросы для вывода
+5. Написать запросы для вывода:
 а) всех пользователей
 
 SELECT * FROM `user` WHERE 1
 
-б) всех записей в корзине (все о юзере, все о продукте, все о категории)
+б) Всех записей в корзине (выводить всю информацию
+о пользователе, всю информацию о продукте, всю
+информацию о категории);
 
 SELECT user.id, user.Name AS user_name, product.Name AS prod_name, product.Price AS prod_price, category.Name AS cat_name
  FROM cart
@@ -22,7 +24,8 @@ SELECT user.id, user.Name AS user_name, product.Name AS prod_name, product.Price
  INNER JOIN category
  ON category.id = product.idCategory
 
-c) всех записей в корзине (имя юзера, имя категории, имя продукта)
+c) Все записи в корзине (вывести имя пользователя,
+название категории и название продукта);
 
 SELECT user.Name AS user_name, product.Name AS prod_name, category.Name AS cat_name
  FROM cart
@@ -33,7 +36,7 @@ SELECT user.Name AS user_name, product.Name AS prod_name, category.Name AS cat_n
  INNER JOIN category
  ON category.id = product.idCategory
 
-d) все, что положил в корзину один юзер (все о юзере, продукт, категория)
+d) Всех продуктов, выбранных в корзине одним пользователем (выводить всю информацию о пользователе, продукт и категорию);
 
 SELECT user.id, user.Name AS user_name, product.Name AS prod_name, category.Name AS cat_name
  FROM cart
@@ -45,7 +48,8 @@ SELECT user.id, user.Name AS user_name, product.Name AS prod_name, category.Name
  ON category.id = product.idCategory
  WHERE user.id = 1;
 
-e) название категорий, продукты которых добавлены в корзину одним юзером
+e) Названий категорий, продукты которых добавлены
+в корзину одним пользователем;
 
 SELECT category.Name
  FROM cart
@@ -58,17 +62,22 @@ SELECT category.Name
  WHERE user.id = 8
  GROUP BY category.Name;
 
-f) инфа о всех юзерах, которые купили 1 продукт
+f) Информацию о всех пользователях, которые купили
+один продукт; 
 
-???
-SELECT user.id, user.Name
- FROM cart
- INNER JOIN user
- ON cart.userid = user.id
+SELECT count_prods, id, username, prod_name FROM
 
-???
-SELECT COUNT(productid)
-FROM cart
-GROUP BY userid
+(SELECT COUNT(user.id) AS count_prods, user.id, user.Name AS username, product.Name AS prod_name
+FROM user
+INNER JOIN cart
+ON cart.userid = user.id
+INNER JOIN product
+ON product.id = cart.productid
+GROUP BY user.id) AS result
 
-g) инфа о категории, продуктов которой нет у юзера в корзине
+WHERE count_prods = 1
+
+g) Информацию о категории, продуктов которой нет
+у пользователя в корзине.
+
+-
