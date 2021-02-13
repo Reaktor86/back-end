@@ -10,16 +10,25 @@ $fields = [
 ];
 
 try {
+    // добываем инфу о товарах
+
     $obj = new \Eshop\Product();
     //$obj->addProduct($fields);
     $products = $obj->getProducts();
-    $quantity = $obj->getQuantity();
+    $quantity = $obj->getTotalQuantity();
     $shopAssort = $obj->getShopAssortment(1);
+
+    // работа с корзиной юзера
+
+    $user = 1;
+    $obj = new \Eshop\Cart($user);
+    //$obj->createCart();
+    //$obj->add(14, 3);
+    //$cartData = $obj->getCartData();
 }
 catch (Exception $e) {
     mail('admin@admin.ri', 'Ошибка на сайте', $e->getMessage());
     var_dump($e->getMessage());
-    var_dump($e->getTrace());
 }
 
 //$obj->updateProduct(2,$fields);

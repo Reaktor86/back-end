@@ -36,3 +36,27 @@ elseif ($request['method'] == 'add')
         echo json_encode(['error' => $e->getMessage()]);
     }
 }
+elseif ($request['method'] == 'deleteCartProduct') {
+    $objCart = new \Eshop\Cart(1);
+    $resultDeleteProduct = $objCart->deleteCartProduct($request['id']);
+    $getCurrentCart = $objCart->getCartData();
+    echo json_encode(['result' => $resultDeleteProduct, 'totalPrice' => $getCurrentCart['total_price']]);
+}
+elseif ($request['method'] == 'minusQuantityCartProduct') {
+    $objCart = new \Eshop\Cart(1);
+    $currentQuantity = $objCart->getCartProductQuantity($request['id']);
+    if ($currentQuantity > 1) {
+        $currentQuantity--;
+        $objCart->setCartProductQuantity($request['id'], $currentQuantity);
+        $getCurrentCart = $objCart->getCartData();
+        echo json_encode(['quantity' => $currentQuantity, 'totalPrice' => $getCurrentCart['total_price']]);
+    }
+}
+elseif ($request['method'] == 'plusQuantityCartProduct') {
+    $objCart = new \Eshop\Cart(1);
+    $currentQuantity = $objCart->getCartProductQuantity($request['id']);
+    $currentQuantity++;
+    $objCart->setCartProductQuantity($request['id'], $currentQuantity);
+    $getCurrentCart = $objCart->getCartData();
+    echo json_encode(['quantity' => $currentQuantity, 'totalPrice' => $getCurrentCart['total_price']]);
+}

@@ -16,4 +16,9 @@ class Db
     {
         return $this->db->query($query);
     }
+
+    public function getDb()
+    {
+        return $this->db;
+    }
 }

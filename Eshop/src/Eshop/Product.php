@@ -131,7 +131,7 @@ class Product
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getQuantity()
+    public function getTotalQuantity()
     {
         $str = 'SELECT products.id, products.name, SUM(products_quantity.quantity) AS total_quantity
             FROM products

@@ -20,10 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f52eb6e8-0377-4808-b310-ca1bce8e3fb4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Eshop/src/img/35b9859e28f06397740da494f0aa26f8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Eshop/src/img/6c5598630708b4157a9878b35da1a4e9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Eshop/cart.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Eshop/src/Eshop/Cart.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Eshop/handle.php" beforeDir="false" afterPath="$PROJECT_DIR$/Eshop/handle.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Eshop/run.php" beforeDir="false" afterPath="$PROJECT_DIR$/Eshop/run.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Eshop/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/Eshop/scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Eshop/src/Eshop/Db.php" beforeDir="false" afterPath="$PROJECT_DIR$/Eshop/src/Eshop/Db.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Eshop/src/Eshop/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/Eshop/src/Eshop/Product.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +70,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ecom-web2020" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -116,6 +119,8 @@
       <workItem from="1612193652937" duration="4392000" />
       <workItem from="1612366088187" duration="7331000" />
       <workItem from="1612798286993" duration="1913000" />
+      <workItem from="1613111985939" duration="5760000" />
+      <workItem from="1613235373785" duration="1626000" />
     </task>
     <servers />
   </component>
@@ -136,23 +141,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="736" y="432" key="ComposerInitDialogKey" timestamp="1611591303285">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="736" y="432" key="ComposerInitDialogKey/0.0.1920.1040@0.0.1920.1040" timestamp="1611591303285" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1612366080536">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1612366080536" />
-    <state x="739" y="243" key="NewPhpClassDialog" timestamp="1612366066043">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="739" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1612366066043" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1611594573727">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1611594573727" />
   </component>
 </project>
