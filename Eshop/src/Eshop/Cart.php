@@ -19,6 +19,7 @@ class Cart
     }
 
     public function getUserCart()
+        // узнать id корзины юзера
     {
         $query = "SELECT * FROM {$this->cartTable} WHERE `user_id` = {$this->userId} ORDER BY id DESC LIMIT 1";
         $result = $this->db->query($query);
@@ -27,6 +28,7 @@ class Cart
     }
 
     public function createCart()
+        // создать корзину
     {
         $query = "INSERT INTO {$this->cartTable} (`user_id`) VALUES ('{$this->userId}')";
         $exec = $this->db->query($query);
@@ -39,6 +41,7 @@ class Cart
     }
 
     public function addProductToCart($productId, $quantity)
+        // добавить продукт в корзину - только запрос
     {
         $query = "INSERT INTO {$this->cartProductTable} (`product_id`, `quantity`, `cart_id`) VALUES ('{$productId}', '{$quantity}', '{$this->cartId}')";
         $result = $this->db->query($query);
@@ -46,6 +49,7 @@ class Cart
     }
 
     public function add($productId, $quantity)
+        // добавить продукт в корзину - полный алгоритм
     {
         try {
             $checkUserCart = $this->getUserCart();
@@ -65,6 +69,7 @@ class Cart
     }
 
     public function getCartData()
+        // узнать содержимое корзины
     {
         $userCart = $this->getUserCart();
         $userCartId = $userCart['id'];
@@ -89,6 +94,7 @@ class Cart
     }
 
     public function getCartProductQuantity($productId)
+        // узнать кол-во определенного продукта из корзины
     {
         $query = "SELECT quantity FROM {$this->cartProductTable} WHERE id = {$productId}";
 
@@ -98,12 +104,14 @@ class Cart
     }
 
     public  function setCartProductQuantity($productId, $newQuantity)
+        // установить кол-во определенного продукта из корзины
     {
         $query = "UPDATE {$this->cartProductTable} SET quantity = {$newQuantity} WHERE id = {$productId}";
         return $this->db->query($query);
     }
 
     public function deleteCartProduct($productId)
+        // удалить продукт из корзины
     {
         $query = "DELETE FROM {$this->cartProductTable} WHERE id = {$productId}";
 

@@ -6,6 +6,12 @@ $cartData = $objCart->getCartData();
 //echo "<pre>"; print_r($cartData); echo "</pre>";
 ?>
 
+<style>
+    .confirm-block
+    {
+        display: none;
+    }
+</style>
 <table>
     <thead>
     <tr>
@@ -34,93 +40,43 @@ $cartData = $objCart->getCartData();
 <div style="font-size: 18px">
     Итоговая цена: <span class="total-data"><?=$cartData['total_price']?></span>
 </div>
+<br>
+<button class="confirm-order">Оформить заказ</button>
+<br><br>
 
-<script>
-    let deleteButtons = document.querySelectorAll('.delete-record');
-    deleteButtons.forEach(function (elemButton) {
-        elemButton.addEventListener('click', function (e) {
-            let parentTr = this.closest('tr');
-            let recordId = parentTr.dataset.recordid;
-            console.log(recordId);
-            let params = {
-                id: recordId,
-                method: 'deleteCartProduct'
-            };
-            let response = fetch('/Eshop/handle.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json;charset=utf-8'
-                },
-                body: JSON.stringify(params)
-            })
-                .then((response) => {
-                    return response.json();
-                })
-                .then((data) => {
-                    console.log(data)
-                    document.querySelector('.total-data').innerHTML = data.totalPrice;
-                    parentTr.remove();
-                });
+<div class="confirm-block">
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Товар</th>
+            <th>Количество</th>
+            <th>Цена</th>
+        </tr>
+        </thead>
+        <tbody>
 
-        });
-    });
+        <? foreach ($cartData['products'] as $item): ?>
+            <tr data-recordId="<?=$item['rid']?>">
+                <td><?= $item['name'] ?></td>
+                <td><?= $item['quantity'] ?></td>
+                <td><?=$item['price']?></td>
+            </tr>
+        <? endforeach; ?>
 
-    let minusButtons = document.querySelectorAll('.minus-quantity');
-    minusButtons.forEach(function (elemButton) {
-        elemButton.addEventListener('click', function (e) {
-            let parentTr = this.closest('tr');
-            let recordId = parentTr.dataset.recordid;
-            console.log(recordId);
-            let params = {
-                id: recordId,
-                method: 'minusQuantityCartProduct'
-            };
-            let response = fetch('/Eshop/handle.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json;charset=utf-8'
-                },
-                body: JSON.stringify(params)
-            })
-                .then((response) => {
-                    return response.json();
-                })
-                .then((data) => {
-                    console.log(data)
-                    parentTr.querySelector('.quantity-num').innerHTML = data.quantity;
-                    document.querySelector('.total-data').innerHTML = data.totalPrice;
-                });
+        </tbody>
+    </table>
+    <br>
+    <div style="font-size: 18px">
+        Итоговая цена: <span class="total-data"><?= $cartData['total_price'] ?></span>
+    </div>
+    <br>
+    <form class="confirm-form">
+        <input type="text" name="name" placeholder="Имя"><br>
+        <input type="text" name="surname" placeholder="Фамилия"><br>
+        <input type="text" name="address" placeholder="Адрес доставки"><br><br>
+        <input type="checkbox" name="save"><span>Запомнить параметры доставки</span><br><br>
+        <button class="confirm-button" type="submit">Подтвердить</button>
+    </form>
+</div>
 
-        });
-    });
-
-    let plusButtons = document.querySelectorAll('.plus-quantity');
-    plusButtons.forEach(function (elemButton) {
-        elemButton.addEventListener('click', function (e) {
-            let parentTr = this.closest('tr');
-            let recordId = parentTr.dataset.recordid;
-            console.log(recordId);
-            let params = {
-                id: recordId,
-                method: 'plusQuantityCartProduct'
-            };
-            let response = fetch('/Eshop/handle.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json;charset=utf-8'
-                },
-                body: JSON.stringify(params)
-            })
-                .then((response) => {
-                    return response.json();
-                })
-                .then((data) => {
-                    console.log(data)
-                    parentTr.querySelector('.quantity-num').innerHTML = data.quantity;
-                    document.querySelector('.total-data').innerHTML = data.totalPrice;
-                });
-
-        });
-    });
-
-</script>
+<script src="cart.js"></script>
