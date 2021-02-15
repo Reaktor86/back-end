@@ -60,3 +60,9 @@ elseif ($request['method'] == 'plusQuantityCartProduct') {
     $getCurrentCart = $objCart->getCartData();
     echo json_encode(['quantity' => $currentQuantity, 'totalPrice' => $getCurrentCart['total_price']]);
 }
+elseif ($request['method'] == 'addToCart')
+{
+    $objCart = new \Eshop\Cart(1);
+    $objCart->add($request['id'], 1);
+    echo 'добавлено в корзину';
+}

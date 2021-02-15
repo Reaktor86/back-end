@@ -15,8 +15,8 @@ try {
     $obj = new \Eshop\Product();
     //$obj->addProduct($fields);
     $products = $obj->getProducts();
-    $quantity = $obj->getTotalQuantity();
-    $shopAssort = $obj->getShopAssortment(1);
+    //$quantity = $obj->getTotalQuantity();
+    //$shopAssort = $obj->getShopAssortment(1);
 
     // работа с корзиной юзера
 
@@ -66,6 +66,7 @@ echo "</pre>";*/
         <th>Изображение</th>
         <th>Обновить</th>
         <th>Удалить</th>
+        <th>В корзину</th>
         <? else: ?>
             <th>ID</th>
             <th>Название</th>
@@ -90,6 +91,9 @@ echo "</pre>";*/
         </td>
         <td>
             <button class="delete" data-id="<?= $val['id'] ?>">X</button>
+        </td>
+        <td>
+            <button class="add-to-cart" data-id="<?= $val['id'] ?>">Add</button>
         </td>
     <tr>
         <? endforeach; ?>
