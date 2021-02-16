@@ -129,3 +129,7 @@ addToCart.forEach(function (item){
     });
 });
 
+let cartButton = document.querySelector('.cart-button');
+cartButton.addEventListener('click', function () {
+    window.open('/Eshop/cart.php');
+});

@@ -64,23 +64,19 @@ elseif ($request['method'] == 'addToCart')
 {
     $objCart = new \Eshop\Cart(1);
     $objCart->add($request['id'], 1);
-    echo 'добавлено в корзину';
-}
-elseif ($request['method'] == 'confirmOrderSaveParams')
-{
-    $order = new \Eshop\OrderParams(1);
-    $order->setOrderParams($request['name'], $request['surname'], $request['address']);
-    $objCart = new \Eshop\Cart(1);
-    $objCart->createCart();
 }
 elseif ($request['method'] == 'confirmOrder')
 {
     $objCart = new \Eshop\Cart(1);
-    $objCart->createCart();
+    $cartId = $objCart->getUserCart();
+    $order = new \Eshop\OrderParams($cartId['id']);
+    $order->setOrderParams($request['name'], $request['surname'], $request['address'], $request['shipping']);
 }
 elseif ($request['method'] == 'getOrderParams')
 {
-    $order = new \Eshop\OrderParams(1);
+    $objCart = new \Eshop\Cart(1);
+    $cartId = $objCart->getUserCart();
+    $order = new \Eshop\OrderParams($cartId['id']);
     $result = $order->getOrderParams();
     echo json_encode(['name' => $result['name'], 'surname' => $result['surname'], 'address' => $result['address']]);
 }

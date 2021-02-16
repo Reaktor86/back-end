@@ -43,9 +43,8 @@ class Cart
     public function addProductToCart($productId, $quantity)
         // добавить продукт в корзину - только запрос
     {
-        $query = "INSERT INTO {$this->cartProductTable} (`product_id`, `quantity`, `cart_id`) VALUES ('{$productId}', '{$quantity}', '{$this->cartId}')";
-        $result = $this->db->query($query);
-        return $result;
+        $query = "INSERT INTO {$this->cartProductTable} (`product_id`, `quantity`, `cart_id`) VALUES ('{$productId}', '{$quantity}', '{$this->cartId}');";
+        return $this->db->query($query);
     }
 
     public function add($productId, $quantity)

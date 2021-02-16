@@ -87,8 +87,6 @@ class Product
         $setString = implode(',',$temp);
         $updateStr = "UPDATE `products` SET {$setString} WHERE `id` = {$id}";
         $result = $this->db->query($updateStr);
-        var_dump($updateStr);
-
         if (!$result) {
             throw new \Exception('Проблема с обновлением.');
         }
@@ -98,9 +96,6 @@ class Product
     {
         //"DELETE FROM `products` WHERE `products`.`id` = 5"
         $str = "DELETE FROM `products` WHERE `products`.`id` = {$id}";
-        echo"<pre>";
-        print_r($str);
-        echo"<pre>";
         $this->db->query($str);
     }
     public function deleteProducts($id)
