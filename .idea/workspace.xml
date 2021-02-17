@@ -20,17 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f52eb6e8-0377-4808-b310-ca1bce8e3fb4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Eshop/order.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Eshop/order.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Eshop/src/Eshop/Shipping.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Eshop/src/img/81582afbb9b93c1b0582d4cb59a05537.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Eshop/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/Eshop/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Eshop/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/Eshop/cart.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Eshop/handle.php" beforeDir="false" afterPath="$PROJECT_DIR$/Eshop/handle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Eshop/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/Eshop/order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Eshop/order.php" beforeDir="false" afterPath="$PROJECT_DIR$/Eshop/order.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Eshop/run.php" beforeDir="false" afterPath="$PROJECT_DIR$/Eshop/run.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Eshop/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/Eshop/scripts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Eshop/src/Eshop/Cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/Eshop/src/Eshop/Cart.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Eshop/src/Eshop/OrderParams.php" beforeDir="false" afterPath="$PROJECT_DIR$/Eshop/src/Eshop/OrderParams.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Eshop/src/Eshop/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/Eshop/src/Eshop/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Eshop/src/img/6c5598630708b4157a9878b35da1a4e9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Eshop/src/img/e083b4f99be23feb5ce859f062e95aca.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysql/ecom.sql" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/ecom.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,6 +130,7 @@
       <workItem from="1613405417998" duration="7455000" />
       <workItem from="1613459017849" duration="4291000" />
       <workItem from="1613472520640" duration="3828000" />
+      <workItem from="1613575589308" duration="9782000" />
     </task>
     <servers />
   </component>
@@ -148,5 +151,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="691" y="243" key="NewPhpClassDialog" timestamp="1613579466861">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="691" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613579466861" />
   </component>
 </project>

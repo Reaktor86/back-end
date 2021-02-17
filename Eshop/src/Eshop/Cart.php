@@ -117,4 +117,22 @@ class Cart
         return $this->db->query($query);
     }
 
+    public function getAllOrders()
+        // добыть информацию о каждом заказе всех юзеров (кроме инфы о продуктах в корзине)
+    {
+        $query = "SELECT cart.id, order_params.name, order_params.surname, order_params.address, shipping.type AS ship_type, shipping.cost AS ship_cost, order_status.type AS status
+            FROM users
+            INNER JOIN cart
+            ON cart.user_id = users.id
+            INNER JOIN order_params
+            ON order_params.cart_id = cart.id
+            INNER JOIN order_status
+            ON order_status.id = order_params.status_id
+            INNER JOIN shipping
+            ON shipping.id = order_params.shipping_id  
+            ORDER BY `cart`.`id` ASC;";
+
+        $result = $this->db->query($query);
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }

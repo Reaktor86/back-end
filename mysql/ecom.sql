@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 08 2021 г., 21:03
+-- Время создания: Фев 17 2021 г., 21:15
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.1.33
 
@@ -37,9 +37,63 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `user_id`) VALUES
-(2, 1),
-(3, 2),
-(1, 3);
+(24, 1),
+(25, 1),
+(26, 1),
+(27, 1),
+(28, 1),
+(29, 1),
+(30, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `order_params`
+--
+
+CREATE TABLE `order_params` (
+  `id` int(11) NOT NULL,
+  `name` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `surname` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `shipping_id` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status_id` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cart_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `order_params`
+--
+
+INSERT INTO `order_params` (`id`, `name`, `surname`, `address`, `shipping_id`, `status_id`, `cart_id`) VALUES
+(7, '', '', '', '1', '1', 24),
+(8, '2', 'hhh', 'Тула', '2', '1', 24),
+(9, '2', 'hj', 'Орел', '2', '1', 25),
+(10, '', '', '', '3', '1', 26),
+(11, '', '', '', '2', '1', 27),
+(12, '', '', '', '2', '1', 28),
+(13, '', '', '', '3', '1', 29);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `order_status`
+--
+
+CREATE TABLE `order_status` (
+  `id` int(11) NOT NULL,
+  `type` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `order_status`
+--
+
+INSERT INTO `order_status` (`id`, `type`) VALUES
+(1, 'в обработке'),
+(2, 'отправлено'),
+(3, 'в пункте выдачи'),
+(4, 'выполнено');
 
 -- --------------------------------------------------------
 
@@ -74,7 +128,7 @@ INSERT INTO `products` (`id`, `name`, `description`, `price`, `active`, `img_pat
 (16, 'Opel', 'black', 66000, 1, '/src/img/'),
 (17, 'Opel', 'black', 5000, 1, '/src/img/'),
 (18, 'Opel', 'black', 5000, 1, 'W:/domains/back-end/Eshop/src/img/35b9859e28f06397740da494f0aa26f8.jpg'),
-(19, 'Opel', 'black', 5000, 1, 'W:/domains/back-end/Eshop/src/img/6c5598630708b4157a9878b35da1a4e9.jpg');
+(20, 'BMW', 'red', 34000, 1, '/Eshop/src/img/81582afbb9b93c1b0582d4cb59a05537.jpg');
 
 -- --------------------------------------------------------
 
@@ -94,14 +148,20 @@ CREATE TABLE `products_in_cart` (
 --
 
 INSERT INTO `products_in_cart` (`id`, `product_id`, `quantity`, `cart_id`) VALUES
-(1, 7, 12, 1),
-(2, 10, 5, 1),
-(3, 19, 8, 1),
-(4, 6, 2, 2),
-(5, 14, 3, 3),
-(6, 12, 3, 1),
-(7, 17, 5, 2),
-(8, 7, 5, 1);
+(48, 18, 1, 24),
+(49, 16, 1, 24),
+(50, 14, 2, 24),
+(54, 14, 1, 25),
+(55, 15, 2, 25),
+(56, 16, 1, 25),
+(57, 20, 1, 26),
+(58, 18, 1, 26),
+(59, 17, 1, 27),
+(60, 16, 1, 27),
+(61, 20, 1, 28),
+(62, 18, 1, 28),
+(63, 16, 1, 29),
+(64, 17, 1, 29);
 
 -- --------------------------------------------------------
 
@@ -126,6 +186,27 @@ INSERT INTO `products_quantity` (`id`, `store_id`, `product_id`, `quantity`) VAL
 (3, 2, 9, 0),
 (4, 1, 9, 5),
 (5, 1, 9, 6);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `shipping`
+--
+
+CREATE TABLE `shipping` (
+  `id` int(11) NOT NULL,
+  `type` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cost` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `shipping`
+--
+
+INSERT INTO `shipping` (`id`, `type`, `cost`) VALUES
+(1, 'Самовывоз', 0),
+(2, 'Почта России', 250),
+(3, 'СДЭК', 350);
 
 -- --------------------------------------------------------
 
@@ -181,6 +262,18 @@ ALTER TABLE `cart`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Индексы таблицы `order_params`
+--
+ALTER TABLE `order_params`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `order_status`
+--
+ALTER TABLE `order_status`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `products`
 --
 ALTER TABLE `products`
@@ -198,6 +291,12 @@ ALTER TABLE `products_in_cart`
 -- Индексы таблицы `products_quantity`
 --
 ALTER TABLE `products_quantity`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `shipping`
+--
+ALTER TABLE `shipping`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -220,19 +319,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT для таблицы `order_params`
+--
+ALTER TABLE `order_params`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT для таблицы `order_status`
+--
+ALTER TABLE `order_status`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT для таблицы `products_in_cart`
 --
 ALTER TABLE `products_in_cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT для таблицы `products_quantity`

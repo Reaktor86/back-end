@@ -3,6 +3,10 @@ require('vendor/autoload.php');
 
 $objCart = new \Eshop\Cart(1);
 $cartData = $objCart->getCartData();
+$objShipping = new \Eshop\Shipping();
+$shippingData = $objShipping->getShipping();
+
+
 //echo "<pre>"; print_r($cartData); echo "</pre>";
 ?>
 
@@ -32,18 +36,39 @@ $cartData = $objCart->getCartData();
     <input type="text" name="name" placeholder="Имя"><br>
     <input type="text" name="surname" placeholder="Фамилия"><br>
     <input type="text" name="address" placeholder="Адрес доставки"><br>
-    <select name="shipping">
-        <option>Самовывоз (бесплатно)</option>
-        <option>Почтой России (+250р)</option>
-        <option>СДЭК (+350р)</option>
+    <select name="shipping" class="shipping">
+
+        <? foreach ($shippingData as $val) : ?>
+            <option value="<?=$val['id']?>">
+                <?=$val['type']?> (
+                <? if ($val['cost'] == 0) : ?>
+                    бесплатно
+                <? else : ?>
+                +<?=$val['cost']?>р
+                <? endif; ?>
+                )
+            </option>
+        <? endforeach; ?>
+
     </select><br>
     <!--<input type="checkbox" name="save"><span>Запомнить параметры доставки</span><br><br>-->
     <br>
-    <div style="font-size: 18px">
+    <div class="total-price">
+
         Итог: <span class="total-data"><?= $cartData['total_price'] ?></span>
     </div><br>
-    <button class="confirm-button" type="submit">Подтвердить</button>
+    <? if ($cartData['total_price'] != 0) : ?>
+        <button class="confirm-button" type="submit">Подтвердить</button>
+    <? endif; ?>
+
 </form>
 <button class="cancel-button" type="submit">Отменить</button>
+
+<style>
+    .total-price {
+        font-size: 18px;
+    }
+
+</style>
 
 <script src="order.js"></script>

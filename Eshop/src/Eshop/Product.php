@@ -50,7 +50,7 @@ class Product
             $name = md5('sold23' . time()) . '.' . $ext;
             $newPath = $_SERVER['DOCUMENT_ROOT'] . '/Eshop/src/img/' . $name;
             $check = move_uploaded_file($fields['img_path']['tmp_name'], $newPath);
-            $fields['img_path'] = $newPath;
+            $fields['img_path'] = '/Eshop/src/img/' . $name;
         } else {
             echo 'неправильный формат картинки';
         }

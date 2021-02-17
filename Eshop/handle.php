@@ -8,6 +8,8 @@ if (empty($request)) {
 }
 
 $obj = new \Eshop\Product();
+$objCart = new \Eshop\Cart(1);
+$objShipping = new \Eshop\Shipping();
 
 if ($request['method'] == 'update')
 {
@@ -37,13 +39,12 @@ elseif ($request['method'] == 'add')
     }
 }
 elseif ($request['method'] == 'deleteCartProduct') {
-    $objCart = new \Eshop\Cart(1);
     $resultDeleteProduct = $objCart->deleteCartProduct($request['id']);
     $getCurrentCart = $objCart->getCartData();
     echo json_encode(['result' => $resultDeleteProduct, 'totalPrice' => $getCurrentCart['total_price']]);
 }
 elseif ($request['method'] == 'minusQuantityCartProduct') {
-    $objCart = new \Eshop\Cart(1);
+
     $currentQuantity = $objCart->getCartProductQuantity($request['id']);
     if ($currentQuantity > 1) {
         $currentQuantity--;
@@ -53,7 +54,6 @@ elseif ($request['method'] == 'minusQuantityCartProduct') {
     }
 }
 elseif ($request['method'] == 'plusQuantityCartProduct') {
-    $objCart = new \Eshop\Cart(1);
     $currentQuantity = $objCart->getCartProductQuantity($request['id']);
     $currentQuantity++;
     $objCart->setCartProductQuantity($request['id'], $currentQuantity);
@@ -62,21 +62,25 @@ elseif ($request['method'] == 'plusQuantityCartProduct') {
 }
 elseif ($request['method'] == 'addToCart')
 {
-    $objCart = new \Eshop\Cart(1);
     $objCart->add($request['id'], 1);
 }
 elseif ($request['method'] == 'confirmOrder')
 {
-    $objCart = new \Eshop\Cart(1);
     $cartId = $objCart->getUserCart();
     $order = new \Eshop\OrderParams($cartId['id']);
-    $order->setOrderParams($request['name'], $request['surname'], $request['address'], $request['shipping']);
+    $order->setOrderParams($request['name'], $request['surname'], $request['address'], $request['shipping_id']);
+    $objCart->createCart();
 }
 elseif ($request['method'] == 'getOrderParams')
 {
-    $objCart = new \Eshop\Cart(1);
     $cartId = $objCart->getUserCart();
     $order = new \Eshop\OrderParams($cartId['id']);
     $result = $order->getOrderParams();
-    echo json_encode(['name' => $result['name'], 'surname' => $result['surname'], 'address' => $result['address']]);
+    echo json_encode(['name' => $result['name'], 'surname' => $result['surname'], 'address' => $result['address'], 'shipping' => $result['shipping'], 'status' => $result['status']]);
+}
+elseif ($request['method'] == 'getShippingCost')
+{
+    $cost = $objShipping->getCost($request['shipping_id']);
+    $getCurrentCart = $objCart->getCartData();
+    echo json_encode(['totalPrice' => $getCurrentCart['total_price'], 'cost' => current($cost)['cost']]);
 }

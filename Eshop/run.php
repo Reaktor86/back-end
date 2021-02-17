@@ -25,6 +25,10 @@ try {
     //$obj->createCart();
     //$obj->add(14, 3);
     //$cartData = $obj->getCartData();
+
+    // таблица со всеми заказами
+    $orders = $obj->getAllOrders();
+    $cartData = $obj->getCartData();
 }
 catch (Exception $e) {
     mail('admin@admin.ri', 'Ошибка на сайте', $e->getMessage());
@@ -154,18 +158,36 @@ echo "</pre>";*/
 <table border="1">
     <thead>
     <tr>
+        <th>Номер заказа</th>
         <th>Имя</th>
         <th>Фамилия</th>
         <th>Адрес</th>
-        <th>Номер заказа</th>
-        <th>Товары в заказе</th>
+        <th>Товары</th>
         <th>Стоимость</th>
-        <th>Тип доставки</th>
+        <th>Доставка</th>
+        <th>Стоимость доставки</th>
+        <th>Общая стоимость</th>
+        <th>Статус</th>
     </tr>
     </thead>
     <tbody>
 
+    <? foreach ($orders as $item): ?>
+        <tr>
+            <th><?= $item['id'] ?></th>
+            <th><?= $item['name'] ?></th>
+            <th><?= $item['surname'] ?></th>
+            <th><?= $item['address'] ?></th>
+            <th>товары</th>
+            <th>стоимость</th>
+            <th><?= $item['ship_type'] ?></th>
+            <th><?= $item['ship_cost'] ?></th>
+            <th>общая стоимость</th>
+            <th><?= $item['status'] ?></th>
 
+            <!--закончил здесь - соединить две таблицы в одном запросе-->
+        </tr>
+    <? endforeach; ?>
 
     </tbody>
 </table>
