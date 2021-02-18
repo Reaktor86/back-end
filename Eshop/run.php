@@ -28,7 +28,6 @@ try {
 
     // таблица со всеми заказами
     $orders = $obj->getAllOrders();
-    $cartData = $obj->getCartData();
 }
 catch (Exception $e) {
     mail('admin@admin.ri', 'Ошибка на сайте', $e->getMessage());
@@ -174,18 +173,23 @@ echo "</pre>";*/
 
     <? foreach ($orders as $item): ?>
         <tr>
-            <th><?= $item['id'] ?></th>
-            <th><?= $item['name'] ?></th>
-            <th><?= $item['surname'] ?></th>
-            <th><?= $item['address'] ?></th>
-            <th>товары</th>
-            <th>стоимость</th>
-            <th><?= $item['ship_type'] ?></th>
-            <th><?= $item['ship_cost'] ?></th>
-            <th>общая стоимость</th>
-            <th><?= $item['status'] ?></th>
-
-            <!--закончил здесь - соединить две таблицы в одном запросе-->
+            <td><?= $item['id'] ?></td>
+            <td><?= $item['name'] ?></td>
+            <td><?= $item['surname'] ?></td>
+            <td><?= $item['address'] ?></td>
+            <td><ul>
+                <?
+                $objCart = $obj->getCartData($item['id']);
+                $objCartArray = $objCart['products'];
+                foreach ($objCartArray as $prods): ?>
+                <li><?= $prods['name'] ?></li>
+                <? endforeach; ?>
+                </ul></td>
+            <td><?= $objCart['total_price'] ?></td>
+            <td><?= $item['ship_type'] ?></td>
+            <td><?= $item['ship_cost'] ?></td>
+            <td><?= $objCart['total_price'] + $item['ship_cost'] ?></td>
+            <td><?= $item['status'] ?></td>
         </tr>
     <? endforeach; ?>
 
@@ -216,12 +220,3 @@ echo "</pre>";*/
 </style>
 
 <script src="scripts.js"></script>
-
-<!--
-1. Вывести таблицу со всеми заказами: имя, фамилия, адрес, номер заказа, товары в заказе, стоимость заказа, тип доставки (добавить)
-2. +++ Статус заказа - в обработке, в пути, доставлено, выполнено
-3. +++ Добавить в параметры доставка cart_id
-4. +++ Исправить баг, когда в подтверждении заказа ничего не меняется (надо перезагружать страницу)
-5. +++ Оформить заказ на отдельной странице
-
--->

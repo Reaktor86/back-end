@@ -67,11 +67,13 @@ class Cart
         }
     }
 
-    public function getCartData()
-        // узнать содержимое корзины
+    public function getCartData($userCartId = false)
+        // узнать содержимое корзины (по умолчанию берётся последняя)
     {
-        $userCart = $this->getUserCart();
-        $userCartId = $userCart['id'];
+        if (!$userCartId) {
+            $userCart = $this->getUserCart();
+            $userCartId = $userCart['id'];
+        }
 
         $query = "SELECT *, products_in_cart.id as rid FROM {$this->cartProductTable}
         INNER JOIN products ON products.id = products_in_cart.product_id
