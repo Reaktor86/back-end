@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 17 2021 г., 21:15
+-- Время создания: Фев 24 2021 г., 17:17
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.1.33
 
@@ -43,7 +43,8 @@ INSERT INTO `cart` (`id`, `user_id`) VALUES
 (27, 1),
 (28, 1),
 (29, 1),
-(30, 1);
+(30, 1),
+(31, 1);
 
 -- --------------------------------------------------------
 
@@ -72,7 +73,8 @@ INSERT INTO `order_params` (`id`, `name`, `surname`, `address`, `shipping_id`, `
 (10, '', '', '', '3', '1', 26),
 (11, '', '', '', '2', '1', 27),
 (12, '', '', '', '2', '1', 28),
-(13, '', '', '', '3', '1', 29);
+(13, '', '', '', '3', '1', 29),
+(14, 'test2', 'dada', 'tutu', '1', '1', 30);
 
 -- --------------------------------------------------------
 
@@ -161,7 +163,13 @@ INSERT INTO `products_in_cart` (`id`, `product_id`, `quantity`, `cart_id`) VALUE
 (61, 20, 1, 28),
 (62, 18, 1, 28),
 (63, 16, 1, 29),
-(64, 17, 1, 29);
+(64, 17, 1, 29),
+(65, 18, 1, 30),
+(66, 17, 1, 30),
+(67, 20, 1, 30),
+(68, 14, 3, 30),
+(69, 12, 3, 30),
+(70, 10, 3, 30);
 
 -- --------------------------------------------------------
 
@@ -319,13 +327,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT для таблицы `order_params`
 --
 ALTER TABLE `order_params`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT для таблицы `order_status`
@@ -343,7 +351,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT для таблицы `products_in_cart`
 --
 ALTER TABLE `products_in_cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT для таблицы `products_quantity`
