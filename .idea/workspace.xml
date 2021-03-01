@@ -20,6 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f52eb6e8-0377-4808-b310-ca1bce8e3fb4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/reg-enter-tutor/constants.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reg-enter-tutor/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reg-enter-tutor/includes/connection.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reg-enter-tutor/includes/footer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reg-enter-tutor/includes/header.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reg-enter-tutor/intropage.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reg-enter-tutor/login.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reg-enter-tutor/register.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,6 +45,7 @@
         <option value="HTML File" />
         <option value="composer.json" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -64,6 +73,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../jumpers" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -71,6 +81,11 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Олег\OpenServer\domains\back-end\reg-enter-tutor\includes" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -120,6 +135,10 @@
       <workItem from="1613472520640" duration="3828000" />
       <workItem from="1613575589308" duration="9782000" />
       <workItem from="1614159380497" duration="651000" />
+      <workItem from="1614279799306" duration="3934000" />
+      <workItem from="1614285159382" duration="1221000" />
+      <workItem from="1614358881173" duration="62000" />
+      <workItem from="1614429389704" duration="2322000" />
     </task>
     <servers />
   </component>
