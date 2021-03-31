@@ -132,4 +132,18 @@ $APPLICATION->IncludeComponent(
 низкий у bitrix/components
 
 
+API
 
+if (CModule::IncludeModule('iblock')) {
+    $sort = ['ID' => 'DESC'];
+    $filter = ['IBLOCK_ID' => 5];
+    $group = false;
+    $nav = ['nPageSize' => 10];
+    $select = ['ID', 'NAME', 'IBLOCK_ID', 'ACTIVE'];
+    $get = CIBlockElement::GetList($sort, $filter, $group, $nav, $select);
+    while ($element = $get->Fetch()) {
+        echo '<pre>';
+        var_dump($element);
+        echo '</pre>';
+    }
+}

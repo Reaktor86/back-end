@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f52eb6e8-0377-4808-b310-ca1bce8e3fb4" name="Default Changelist" comment="" />
+    <list default="true" id="f52eb6e8-0377-4808-b310-ca1bce8e3fb4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Конспект по Bitrix.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Конспект по Bitrix.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -131,6 +134,8 @@
       <workItem from="1614358881173" duration="62000" />
       <workItem from="1614429389704" duration="2322000" />
       <workItem from="1614617058769" duration="46000" />
+      <workItem from="1616606885962" duration="224000" />
+      <workItem from="1616607370817" duration="786000" />
     </task>
     <servers />
   </component>
