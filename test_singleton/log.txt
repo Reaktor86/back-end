@@ -1,0 +1,6 @@
+2021-03-27 10:24:15 Started!
+2021-03-27 10:24:15 Logger has a single instance.
+2021-03-27 10:24:15 Logger has a single instance.
+2021-03-27 10:24:15 Logger has a single instance.
+2021-03-27 10:24:15 Logger has a single instance.
+2021-03-27 10:24:15 Logger has a single instance.
